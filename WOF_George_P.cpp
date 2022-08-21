@@ -14,21 +14,25 @@ int main()
       return (std::cerr << "Cannot open file\n"), 1;
    }
 
-   std::string temp;
-   std::vector<std::string> phrases;
+   std::string phrase;
 
-   // skip the first two lines.
-   std::getline(ifs,temp);
-   std::getline(ifs, temp);
+   int num_phrases { };
 
-   while ( std::getline(ifs, temp) )
-   {
-      phrases.emplace_back(temp);
-   }
+   while ( std::getline(ifs, phrase) ) { num_phrases++; }
+
+   // reset the file to the beginning
+   ifs.clear();
+   ifs.seekg(0, std::ios::beg);
 
    rtk::srand();
 
-   int ran_phrase { rtk::rand(0, phrases.size() - 1) };
+   // skips the first two line, the phrase list starts at line 3
+   int ran_phrase { rtk::rand(3, num_phrases) };
 
-   std::cout << phrases[ran_phrase] << '\n';
+   for ( size_t itr { }; itr < ran_phrase; ++itr )
+   {
+      std::getline(ifs, phrase);
+   }
+
+   std::cout << phrase << '\n';
 }
