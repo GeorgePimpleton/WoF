@@ -1,18 +1,14 @@
 #include <fstream>
 #include <iostream>
 #include <string>
-#include <vector>
 
 #include "random_toolkit.hpp"
 
-int main()
+std::string get_phrase()
 {
-   std::ifstream ifs ( "wof.1-20.txt" );
+   std::ifstream ifs("wof.1-20.txt");
 
-   if ( !ifs )
-   {
-      return (std::cerr << "Cannot open file\n"), 1;
-   }
+   if ( !ifs ) { std::cerr << "Cannot open file\n";  exit(1); }
 
    std::string phrase;
 
@@ -24,8 +20,6 @@ int main()
    ifs.clear();
    ifs.seekg(0, std::ios::beg);
 
-   rtk::srand();
-
    // skips the first two line, the phrase list starts at line 3
    int ran_phrase { rtk::rand(3, num_phrases) };
 
@@ -33,6 +27,14 @@ int main()
    {
       std::getline(ifs, phrase);
    }
+
+   return phrase;
+}
+int main()
+{
+   rtk::srand();
+
+   std::string phrase { get_phrase() };
 
    std::cout << phrase << '\n';
 }
