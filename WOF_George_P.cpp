@@ -1,6 +1,7 @@
 #include <fstream>
 #include <iostream>
 #include <string>
+#include <cctype>
 
 #include "random_toolkit.hpp"
 
@@ -30,6 +31,31 @@ std::string get_phrase()
 
    return phrase;
 }
+
+std::string guess_phrase(std::string phrase)
+{
+   std::string guess { '"' };
+
+   for ( int itr { }; itr < phrase.size(); ++itr )
+   {
+      char type = phrase[itr];
+
+      if ( ::isalpha(type) )
+      {
+         guess += '#';
+      }
+      else if ( ::ispunct(type) )
+      {
+         guess += type;
+      }
+      else
+      {
+         guess += ' ';
+      }
+   }
+   return guess += '"';
+}
+
 int main()
 {
    rtk::srand();
@@ -37,4 +63,8 @@ int main()
    std::string phrase { get_phrase() };
 
    std::cout << phrase << '\n';
+
+   std::string init_guess { guess_phrase(phrase) };
+
+   std::cout << init_guess << '\n';
 }
