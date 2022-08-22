@@ -21,3 +21,7 @@ The code so far deals with:
 If the phrase is CUFF & SAUSAGE LINKS the hidden phrase block is #### & ####### #####
 
 Yes, punctuation matters.
+
+### Notes
+
+I am an incremental coder, I "creep up" on a finished product by writing/adding/updating small changes to the code base.  I have an idea what the finished project will be I get there by small steps.
