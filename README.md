@@ -2,7 +2,7 @@
 
 [![Language](https://img.shields.io/badge/Language%20-C++-blue.svg)](https://github.com/GeorgePimpleton/Win32-games/)
 
-CplusPlus Wheel of Fortune code challenge
+## CplusPlus Wheel of Fortune code challenge
 
 https://cplusplus.com/forum/lounge/284716/
 
