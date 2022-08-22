@@ -19,7 +19,7 @@ std::string get_phrase()
 
    // reset the file to the beginning
    ifs.clear();
-   ifs.seekg(0, std::ios::beg);
+   ifs.seekg(std::ios::beg);
 
    // skips the first two line, the phrase list starts at line 3
    int ran_phrase { rtk::rand(3, num_phrases) };
@@ -34,7 +34,7 @@ std::string get_phrase()
 
 std::string guess_phrase(std::string phrase)
 {
-   std::string guess { '"' };
+   std::string guess { };
 
    for ( int itr { }; itr < phrase.size(); ++itr )
    {
@@ -53,7 +53,7 @@ std::string guess_phrase(std::string phrase)
          guess += ' ';
       }
    }
-   return guess += '"';
+   return guess;
 }
 
 int main()
