@@ -1,9 +1,16 @@
-#include <fstream>
-#include <iostream>
-#include <string>
-#include <cctype>
+// CPlusPlus.com "Wheel Of Fortune" Game Challenge
+// https://cplusplus.com/forum/lounge/284716/
 
-#include "random_toolkit.hpp"
+// modular version
+
+import <fstream>;
+import <iostream>;
+import <string>;
+
+import random_toolkit;
+
+// C library headers are not guaranteed to be modularized
+#include <cctype>
 
 std::string get_phrase()
 {
@@ -38,7 +45,7 @@ std::string guess_phrase(std::string phrase)
 
    for ( int itr { }; itr < phrase.size(); ++itr )
    {
-      char type = phrase[itr];
+      char type = phrase[ itr ];
 
       if ( ::isalpha(type) )
       {
